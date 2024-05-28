@@ -41,20 +41,38 @@ h1 {
     background-color: transparent;
     color: #ffffff;
     transition: background-color 0.3s ease;
+
 }
 .characterButton:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 .character-image {
-    width: 150px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 10px; /* Adjust the margin for spacing */
-    position: relative; /* Set the position to relative */
-    top: calc(100% + 10px); /* Position the image below the button */
-    left: 0%; /* Center the image horizontally */
-    transform: translateX(-50%); /* Center the image horizontally */
+    width: 150px;
+    height: auto;
+    position: relative;
+    margin-top: -150px;
+    /* margin-bottom: 200px; */
+    left: -20%;
+    transform: translateY(10px);
+    top: 250px;
 }
 
 .character-image.fade-in {
     opacity: 1;
+}
+#charInput {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    color: #333; /* Dark text color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#charInput:focus {
+    outline: none; /* Remove default focus outline */
+    background-color: rgba(255, 255, 255, 0.9); /* Lighter background color on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on focus */
 }
