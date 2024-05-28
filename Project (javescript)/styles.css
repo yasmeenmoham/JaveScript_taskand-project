@@ -1,0 +1,60 @@
+body {
+    background-image: url('child-1864718_640.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+h1 {
+    text-decoration: underline;
+}
+#numberInput {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+#generateButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: palevioletred;
+    color: white;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#generateButton:hover {
+    background-color: pink;
+    color: palevioletred;
+}
+
+.characterButton {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+.characterButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.character-image {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Adjust the margin for spacing */
+    position: relative; /* Set the position to relative */
+    top: calc(100% + 10px); /* Position the image below the button */
+    left: 0%; /* Center the image horizontally */
+    transform: translateX(-50%); /* Center the image horizontally */
+}
+
+.character-image.fade-in {
+    opacity: 1;
+}

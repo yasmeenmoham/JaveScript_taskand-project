@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>     
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>four day</title>
+  <link rel="stylesheet" href="index.css">  
+  <script src="index.js"></script>
+  </head>
+<body>
+<script>
+// day 2
+// var text = "Hello in My Website in day 2!";
+// document.write(text.length + "<br>");
+// document.write(text.charAt(2) + "<br>");
+// document.write(text.indexOf("Web") + "<br>");
+// document.write(text.indexOf("yasmeen") + "<br>");
+// document.write(text.lastIndexOf("a") + "<br>");
+// document.write(text.substring(1, 9) + "<br>");
+// document.write(text.substring(27) + "<br>");
+// document.write(text.substring(text.length-1) + "<br>");
+// document.write(text.replace(/e/g,"@") + "<br>");
+// document.write(text.replace(/e/,"@").fontcolor("pink") + "<br>");
+
+// var  CARs =new Array();
+// CARs [0]="BMW";
+// CARs [1]="Volv";
+// CARs [2]="Saab";
+// CARs [3]="Ford";
+
+// //
+
+
+// var car2= new Array("BMW","Volv","Saab","Ford");
+// //
+// var car3= [];
+// var car3=["BMW","Volv","Saab","Ford"];
+
+// car3.push("hhh");
+// var  CARs =new Array();
+// CARs ["car1"]="BMW";
+// CARs ["car2"]="Volv";
+// CARs ["car3"]="Saab";
+// CARs ["car3"]="Ford";
+// document.write(CARs["car1"]+ "<br>");
+// let text1 = "";
+// for (let i = 0; i < car3.length; i++) {
+//     text1 += car3[i] + "<br>"; 
+ 
+// }
+// document.write(text1);
+
+// let text2 = "";
+// for (let i = 0; i < car2.length; i++) {
+//     text1 += car2[i] + "<br>"; 
+ 
+// }
+// document.write(text2);
+
+
+// var d=new Date();
+// console.log(d);
+// var datestring='2022-02-02';
+
+// var d = new Date();
+// d.setMonth(1);
+// console.log(d.setMonth(1))
+// var d = new Date();
+// var month = d.getMonth(); 
+
+// var d = new Date();
+// console.log("Current date: " + d.getDate());
+
+// d.setMonth(25); 
+// d.setDate(25);
+// console.log("Updated date: " + d.getDate(25));
+
+// var month = d.getMonth(5);
+// console.log("Month: " + month);
+// //fuction set time
+// d.toLocaleDateString();
+// console.log(d.toLocaleDateString());
+// d.toLocaleTimeString()
+
+// console.log(d.toLocaleTimeString());
+
+
+//multiline 
+//task2
+//quastion 2   ...... a
+var Studentgrades=[60,100,10,15,85];
+Studentgrades.sort(function(a,b){
+    return b-a;
+});
+document.write(Studentgrades+"<br>");
+
+//quastion 3  .....  a
+var students=[{name:"David",degree:85},{name:"Ahmed",degree:95},{name:"Ali",degree:85},{name:"Sahar",degree:60},{name:"Ali",degree:50}];
+var highdegree=students.filter(function(student){
+  return  student.degree>=90&&student.degree<=100;
+});
+var highstudentname=highdegree.map(function(student){
+  return  (student.name).fontcolor("orange");
+});
+document.write("THE student with high degree"+" "+highstudentname+"<br>");
+
+//quastion 3  .....  b
+var lowdegree=students.filter(function(student){
+  return  student.degree<=60;
+});
+var lowstudentname=lowdegree.map(function(student){
+  return  (student.name).bold();
+});
+document.write("THE student with low degree"+" "+lowstudentname);
+/// to ADD new Student by Push   3.........c
+var newstudent={name:"Farha",degree:95};
+students.push(newstudent);
+for (var index in students){
+    var student = students[index];
+  
+    document.write("<br>"+"Name: " + student.name + ", degree: " + student.degree + "<br>");
+    console.log(students[index]);
+}
+
+//to pop of the student using pop   3......d
+students.pop();
+document.write("print all the arrey after using pop............."+"<hr>");
+for (var index in students){
+    var student = students[index];
+  
+    document.write("<br>"+"Name: " + student.name + ", degree: " + student.degree + "<br>");
+    console.log(students[index]);
+}
+
+
+
+
+
+</script>
+<!-- qasution........1 -->
+<h1> Display Current Date and Time</h1>
+<button onclick="mydate()" style="padding: 10px 20px; background-color: #4CAF50; 
+color: white; border: none; cursor: pointer; border-radius: 5px;">Show Date and Time</button>
+
+<p id="datadisplay"></p>
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>     
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>four day</title>
+  <link rel="stylesheet" href="index.css">  
+  <script src="index.js"></script>
+  </head>
+
+  <style>
+    /* Container for the buttons */
+    .button-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    /* Button styles */
+    .button-container button {
+        padding: 10px 20px; /* Adjust padding for button size */
+        background-color: #4CAF50; /* Green background color */
+        border: none;
+        color: white; /* White text color */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 8px; /* Rounded corners */
+        cursor: pointer;
+        transition: background-color 0.3s; /* Smooth transition for hover effect */
+    }
+
+    /* Button hover effect */
+    .button-container button:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+    /* Disable style for the close button when it's disabled */
+    .button-container button:disabled {
+        background-color: #cccccc; /* Light gray for disabled button */
+        cursor: not-allowed;
+    }
+      /* Button styles */
+      button {
+            padding: 10px 20px; /* Adjust padding for button size */
+            background-color: pink; /* Green background color */
+            border: none;
+            color: white; /* White text color */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            margin: 5px; /* Add margin for spacing between buttons */
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: palevioletred; /* Darker green on hover */
+        }
+
+        /* Disable style for the button when it's disabled */
+        button:disabled {
+            background-color: #cccccc; /* Light gray for disabled button */
+            cursor: not-allowed;
+        }
+</style>
+
+
+<body>
+
+    <h1>Alert After 3 Seconds</h1>
+
+    <button onclick="startAlert()">Start count!</button>
+    <button onclick="cancelAlert()">Cancel Alert!</button>
+  
+    <button id="startButton">Start count!</button>
+
+<br>
+    <div class="container">
+      <div class="button-container">
+          <button id="openButton">click to open</button>
+          <button id="closeButton">click to close</button>
+          <button id="checkButton">Is Closed?</button>
+      </div>
+  
+     <div class="radio-container">
+      <label><input type="radio" name="colorRadio" value="lightgreen"> Light Green</label>
+      <label><input type="radio" name="colorRadio" value="lightyellow"> Light Yellow</label>
+      <label><input type="radio" name="colorRadio" value="pink"> Pink</label>
+    </div>
+  </div>
+
+
+
+    </body>
+    <script>
+       var alertTimeout;
+    var showAlertFlag = true;
+
+    function startAlert() {
+      alertTimeout = setTimeout(function() {
+        if (showAlertFlag) {
+          alert("Alert after 3 seconds");
+          document.getElementById("result").textContent = "Alert displayed after 3 seconds!";
+        }
+      }, 5000);
+    }
+
+    function cancelAlert() {
+      showAlertFlag = false;
+      clearTimeout(alertTimeout);
+      document.getElementById("result").textContent = "Alert cancelled after 3 seconds!";
+    }
+    document.getElementById("startButton").addEventListener("click", function() {
+    // Delay of 3 seconds (3000 milliseconds)
+    setTimeout(function() {
+        alert("3 seconds have passed!");
+    }, 3000);
+});
+let newWindow =null; // Declare newWindow as a global variable
+
+document.getElementById('openButton').addEventListener('click', () => {
+  if (!newWindow || newWindow.closed) {
+    newWindow = window.open('', '', 'width=600,height=400');
+    newWindow.document.write('<h1>New Window</h1>');
+ newWindow.blur();
+    // Set the background color of the new window based on the selected radio button
+    const selectedColor = document.querySelector('input[name="colorRadio"]:checked')?.value;
+    if (selectedColor) {
+      newWindow.document.body.style.backgroundColor = selectedColor;
+      if (selectedColor === 'lightyellow') {
+           newWindow.blur(); // Blur the new window for the 'lightyellow' case
+}
+    }
+
+    document.getElementById('closeButton').disabled = false;
+  }
+});
+
+document.getElementById('closeButton').addEventListener('click', function() {
+  if (newWindow && !newWindow.closed) {
+    newWindow.close();
+    document.getElementById('closeButton').disabled = true;
+  }
+});
+
+document.getElementById('checkButton').addEventListener('click', function() {
+  if (newWindow && !newWindow.closed) {
+    alert('false');
+  } else {
+    alert('true');
+    document.getElementById('closeButton').disabled = true;
+  }
+});
+
+
+</script>
+    
+  <p id="result"></p>
+    </html>

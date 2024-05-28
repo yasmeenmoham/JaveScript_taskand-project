@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <img id="myImage" src="" alt="Image 1">
+
+  <script>
+    const myImage = document.getElementById('myImage');
+
+    // Define the image sources
+    const imageSources = [
+      'img-9.jpg',
+      'img-2.jpg',
+      'img-3.jpg',
+      'img-4.jpg',
+      'img-5.jpg',
+      'img-6.jpg',
+      'img-7.jpg',
+      'img-8.jpg',
+      'img-9.jpg',
+      'img-10.jpg'
+    ];
+
+    let currentIndex = 0;
+    let intervalId;
+    let lastDisplayedIndex = 0; // Track the last displayed image index
+
+    function startImageSwap(startIndex) {
+      let i = startIndex; // Start from the specified index
+      intervalId = setInterval(() => {
+        myImage.src = imageSources[i];
+        lastDisplayedIndex = i; // Update the last displayed index
+        i = (i + 1) % imageSources.length;
+      }, 500); // Change image every 500ms (0.5 seconds)
+    }
+
+    function stopImageSwap() {
+      clearInterval(intervalId); // Stop looping
+      myImage.src = imageSources[lastDisplayedIndex]; // Display the last displayed image
+    }
+
+    myImage.addEventListener('mouseover', () => {
+      startImageSwap(lastDisplayedIndex); // Start swapping from the last displayed image
+    });
+
+    myImage.addEventListener('mouseout', () => {
+      stopImageSwap(); // Stop swapping images
+    });
+  </script>
+</body>
+</html>

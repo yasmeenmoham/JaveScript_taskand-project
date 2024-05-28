@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+    <title>Day Four JaveScript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+</head>
+<body>
+
+    <form id="frm1" action="/action_page.php" name="myforms" target="_blank" onreset="myFunction()">
+        First name:
+        <input type="text" name="fname" >
+        <br>
+        Last name:
+        <input type="text" name="lname" >
+        <br><br>
+        <input type="reset">
+    </form>
+    
+
+    <form action="/action_page.php">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname">
+
+        <br><br>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="Norway" readonly>
+        <br><br>
+        <input type="submit" value="Submit">
+        </form> 
+        <input type="button" onclick="getfocus()" value="Get focus">
+<input type="button" onclick="losefocus()" value="Lose focus">
+
+<a id="myAnchor" href="#">Anchor Element</a>
+<input type="text" onblur="myFunction()">
+<select id="mySelect">
+    <option>Apple</option>
+    <option>Orange</option>
+    <option>Pineapple</option>
+    <option>Banana</option>
+    </select>
+    <button type="button" onclick="myFunction()">Insert option</button>
+    <form> What color do you prefer?<br>
+        <input type="radio" name="colors" id="red">Red<br>
+        <input type="radio" name="colors" id="blue">Blue
+        </form>
+        <button onclick="check()">Check "Red"</button>
+        <button onclick="uncheck()">Uncheck "Red"</button>
+        <label for="myCheck">Checkbox:</label>
+<input type="checkbox" id="myCheck" onclick="myFunction()">
+<p id="text" style="display:none">Checkbox is CHECKED!</p>
+
+</body>
+<script>
+    // const x = document.forms["myforms"];
+    // let text = "";
+    // for (let i = 0; i < x.length ;i++) {
+    // text += x.elements[i].value + "<br>";
+    // }
+    // document.write(text);
+    
+    function getfocus() {
+document.getElementById("myAnchor").focus();
+}
+function losefocus() {
+document.getElementById("myAnchor").blur();
+}
+// document.getElementById("fname").onblur =
+// function() { myFunction()
+// };
+// function myFunction() {
+// alert("Input field lost focus.");
+// }
+document.getElementById("fname").addEventListener("blur", myFunction);
+function myFunction() {
+alert("Input field lost focus.");
+}
+// function myFunction() {
+// document.getElementById("mySelect").selectedIndex = "2";
+// }
+// function myFunction() {
+// var x = document.getElementById("mySelect").options.length;
+// document.write (
+// "Found " + x + " options in the list.");
+// }
+
+// function myFunction() {
+// var x = document.getElementById("mySelect");
+// var option = document.createElement("option");
+// option.text = "Kiwi";
+// x.add(option);
+// var y = document.getElementById("mySelect").options.length;
+// document.write (
+// "Found " + y + " options in the list.");
+// }
+function check() {
+document.getElementById("red").checked = true;
+}
+function uncheck() {
+document.getElementById("red").checked = false;
+}
+function myFunction() {
+var checkBox = document.getElementById("myCheck");
+var text = document.getElementById("text");
+if (checkBox.checked == true){
+text.style.display = "block";
+} else {
+text.style.display = "none";
+}
+}
+var sObj = {
+    "ID": 10,
+    "name": "Ali",
+    "City": "Assiut",
+    "Job": "doctor",
+    "Married": true
+};
+
+var jObj = JSON.stringify(sObj); // Corrected from JSON.parse
+// OR
+var jObj = {
+    ID: 10,
+    name: "Ali",
+    City: "Assiut",
+    "Job": "doctor",
+    Married: true
+};
+
+document.write(jObj.name);
+document.write(jObj.Job); // Corrected property name
+var stdArr = ["Ahmed", "Ali", "Emad"];
+for (var i = 0; i < 3; i++) {
+    document.write(stdArr[i]);
+}
+
+// Array with different types
+var Jarr = ["red", 1, null, true];
+document.write(Jarr[2]);
+
+// Nested array
+var Jarr2 = ["red", 1, ["a", "b", "c"], false];
+document.write(Jarr2[2][1]);
+
+// Object in an array
+var Jarr3 = ["Ahmed", { Grade: "A", Mark: 20 }, 2];
+document.write(Jarr3[1].Grade);
+xmlhttp.onreadystatechange=function()
+{
+if (xmlhttp.readyState==4 && xmlhttp.status==200)
+{
+var str=xmlhttp.responseText;
+}
+}
+
+
+xmlhttp.open("GET"
+,
+"json_info.txt"
+,true); xmlhttp.send();
+
+
+
+
+
+
+$(document).ready(function(){
+$("button").click(function(){
+$.ajax({url: "demo_test.txt"
+, success: function(result){
+$("#div1").html(result);
+}});
+});
+});
+$(document).ready(function() {
+    $("button").click(function() {
+        $.post(
+            "demo_test_post.asp",
+            {
+                name: "Donald Duck",
+                city: "Duckburg"
+            },
+            function(data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            }
+        );
+    });
+});
+
+    </script>
+    
+</html>
